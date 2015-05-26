@@ -1,3 +1,12 @@
+## Status
+
+Status: Maintained until 8/1/15. Accepting bug fixes only
+
+As debugger is only supported for 1.9 and [support for 1.9 has
+ended](https://www.ruby-lang.org/en/news/2014/01/10/ruby-1-9-3-will-end-on-2015/), debugger will
+only be maintained until 8/1/15. After this date, this gem will have no more releases.
+Use of Ruby 2.X is recommended as the Ruby core team has advised.
+
 ## Description
 A fork of ruby-debug(19) that works on 1.9.2 and 1.9.3 and installs easily for rvm/rbenv rubies.
 ruby >= 2.0 are *not* supported - [see below](#known-issues).
