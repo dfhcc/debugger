@@ -5,6 +5,7 @@ require 'thread'
 require 'ruby-debug-base'
 require 'ruby-debug/processor'
 require 'ruby-debug/printers/plain'
+require 'pathname'
 
 module Debugger
   self.handler = CommandProcessor.new
@@ -136,10 +137,11 @@ module Debugger
     # directory where you invoke ruby-debug.
     def run_init_script(out = handler.interface)
       cwd_script_file  = File.expand_path(File.join(".", INITFILE))
-      run_script(cwd_script_file, out) if File.exists?(cwd_script_file)
+      path = Pathname.new(cwd_script_file)
+      run_script(cwd_script_file, out) if path.exist?
 
       home_script_file = File.expand_path(File.join(HOME_DIR, INITFILE))
-      run_script(home_script_file, out) if File.exists?(home_script_file) and
+      run_script(home_script_file, out) if path.exist? and
         cwd_script_file != home_script_file
     end
 
